@@ -57,9 +57,6 @@ type Config struct {
 	// Connect to Koding mongodb
 	MongoURL string `required:"true"`
 
-	// Endpoint for fetching plans
-	PlanEndpoint string `required:"true"`
-
 	// CredentialEndpoint is an API for managing stack credentials.
 	CredentialEndpoint string
 
