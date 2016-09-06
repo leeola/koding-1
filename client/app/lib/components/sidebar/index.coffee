@@ -16,7 +16,7 @@ SidebarFlux = require 'app/flux/sidebar'
 TeamFlux = require 'app/flux/teams'
 DEFAULT_LOGOPATH = '/a/images/logos/sidebar_footer_logo.svg'
 MENU = null
-
+SidebarContainer = require './container/SidebarContainer'
 require './styl/sidebar.styl'
 require './styl/sidebarmenu.styl'
 
@@ -238,6 +238,11 @@ module.exports = class Sidebar extends React.Component
     <img src="#{DEFAULT_LOGOPATH}" className='Sidebar-footer-logo' />
 
 
+  renderSidebarContainer: ->
+
+    <SidebarContainer store={kd.singletons.store} />
+
+
   render: ->
 
     <Scroller className={kd.utils.curry 'activity-sidebar', @props.className}>
@@ -247,6 +252,7 @@ module.exports = class Sidebar extends React.Component
         {@renderSharedMachines()}
         {@renderInvitationWidget()}
       </div>
+      {@renderSidebarContainer()}
       <div className='Sidebar-logo-wrapper'>
         {@renderLogo()}
       </div>
